@@ -27,7 +27,7 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
         const { displayName, photoURL, uid } = user;
 
         if (!displayName || !photoURL) {
-          throw new Error('Missing information from Google Account.');
+          throw new Error('Falta informações da conta Google, tente novamente.');
         }
 
         setUser({
