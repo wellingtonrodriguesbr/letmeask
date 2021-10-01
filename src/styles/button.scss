@@ -24,4 +24,16 @@
    img {
      margin-right: 8px;
    }
+
+   &.outlined {
+    background-color: transparent;
+    border: 1px solid #8359fd;
+    color: #8359fd;
+
+    &:hover {
+      background-color: transparent;
+      color: #6a3afa;
+      border-color: #6a3afa;
+    }
+   }
 }
