@@ -1,49 +1,39 @@
-import { FormEvent, useState } from 'react';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import { Button } from '../components/Button';
 import { Question } from '../components/Question';
 import { RoomCode } from '../components/RoomCode';
-import { useAuth } from '../hooks/useAuth';
-import { database } from '../services/firebase';
+// import { useAuth } from '../hooks/useAuth';
 
 import logoImg from '../assets/images/logo.svg';
+import deleteImg from '../assets/images/delete.svg';
 import '../styles/room.scss';
 import { Link } from 'react-router-dom';
 import { useRoom } from '../hooks/useRoom';
+import { database } from '../services/firebase';
 
 type RoomParams = {
   id: string;
 }
 
 export function AdminRoom() {
-  const { user } = useAuth();
+  // const { user } = useAuth();
+  const history = useHistory();
   const params = useParams<RoomParams>();
-  const [newQuestion, setNewQuestion] = useState('');
   const roomId = params.id;
   const { title, questions } = useRoom(roomId);
 
-  async function handleCreateNewQuestion(event: FormEvent) {
-    event.preventDefault();
-    if (newQuestion.trim() === '') {
-      return;
+  async function handleEndRoom() {
+    database.ref(`rooms/${roomId}`).update({
+      endedAt: new Date(),
+    });
+
+    history.push('/');
+  }
+
+  async function handleDeleteQuestion(questionId: string) {
+    if (window.confirm('Tem certeza que deseja excluir essa pergunta?')) {
+      await database.ref(`rooms/${roomId}/questions/${questionId}`).remove();
     }
-
-    if (!user) {
-      throw new Error('Você precisa estar logado para enviar uma pergunta.');
-    }
-
-    const question = {
-      content: newQuestion,
-      author: {
-        name: user.name,
-        avatar: user.avatar
-      },
-      isHighLighted: false,
-      isAnswered: false
-    };
-
-    await database.ref(`rooms/${roomId}/questions`).push(question);
-    setNewQuestion('');
   }
 
   return (
@@ -53,7 +43,7 @@ export function AdminRoom() {
           <img src={logoImg} alt="Logo do Letmeask" />
           <div className="buttons-admin">
           <RoomCode code={roomId}/>
-          <Button isOutlined >Encerrar sala</Button>
+          <Button isOutlined onClick={handleEndRoom}>Encerrar sala</Button>
           </div>
         </div>
       </header>
@@ -74,7 +64,14 @@ export function AdminRoom() {
               key={question.id} 
               content={question.content}
               author={question.author}
-              />
+              >
+                <button
+                type="button"
+                onClick={() => handleDeleteQuestion(question.id)}
+                >
+                  <img src={deleteImg} alt="Botão de apagar pergunta" />
+                </button>
+              </Question>
             );
           })}
         </div>
