@@ -12,6 +12,14 @@
 
       > img {
         max-height: 45px;
+
+        @media (max-width: 968px) {
+         margin-bottom: 16px;
+        }
+      }
+
+      @media (max-width: 968px) {
+        flex-direction: column;
       }
     }
 
@@ -22,6 +30,10 @@
 
       button {
         height: 40px;
+      }
+
+      @media (max-width: 968px) {
+        flex-direction: column;
       }
     }
   }
@@ -42,6 +54,10 @@
           font-family: 'Poppins', sans-serif;
           font-size: 24px;
           color: #29292e;
+
+          @media (max-width: 968px) {
+            font-size: 16px;
+          }
         }
   
         span {
@@ -52,6 +68,17 @@
           color: #f8f8f8;
           font-weight: 500;
           font-size: 14px;
+
+          @media (max-width: 968px) {
+            padding: 4px 8px;
+            font-size: 12px;
+            margin-left: 0;
+            margin-top: 8px;
+          }
+        }
+
+        @media (max-width: 968px) {
+          flex-direction: column;
         }
       }
 
@@ -62,6 +89,10 @@
         
         &:hover {
           color: #6a3afa;
+        }
+
+        @media (max-width: 968px) {
+          font-size: 12px;
         }
       }
     }
@@ -100,6 +131,10 @@
             font-weight: 500;
             font-size: 14px;
           }
+
+          @media (max-width: 968px) {
+            margin-bottom: 16px;
+          }
         }
 
         > span {
@@ -115,6 +150,10 @@
             cursor: pointer;
             color: #8359fd;
           }
+        }
+
+        @media (max-width: 968px) {
+          flex-direction: column;
         }
       }
     }
