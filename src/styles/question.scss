@@ -47,6 +47,10 @@
         margin-left: 8px;
         color: #737380;
         font-size: 14px;
+
+        @media (max-width: 968px) {
+          font-size: 10px;
+        }
       }
     }
 
@@ -72,6 +76,14 @@
   
         &:hover {
           filter: brightness(0.7)
+      }
+    }
+
+    @media (max-width: 968px) {
+      flex-direction: column;
+      
+      button {
+        margin-top: 16px;
       }
     }
   }
