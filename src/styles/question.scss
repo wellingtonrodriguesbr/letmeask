@@ -20,6 +20,7 @@
 
     .user-info {
       display: flex;
+      justify-content: space-between;
       align-items: center;
 
       img {
@@ -32,6 +33,30 @@
         margin-left: 8px;
         color: #737380;
         font-size: 14px;
+      }
+    }
+
+    button {
+      border: none;
+      background: transparent;
+      cursor: pointer;
+
+      &.like-button {
+        display: flex;
+        align-items: flex-end;
+        color: #737380;
+        gap: 8px;
+
+        &.liked {
+          color: #8359fd;
+          svg path {
+            stroke: #8359fd;
+          }
+        }
+      }
+
+      &:hover {
+        filter: brightness(0.7)
       }
     }
   }

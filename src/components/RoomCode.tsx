@@ -9,7 +9,7 @@ export function RoomCode(props: RoomCode) {
   function copyRoomCodeToClipboard() {
     navigator.clipboard.writeText(props.code);
   }
-
+  
   return (
     <button className="room-code" onClick={copyRoomCodeToClipboard}>
       <div>
