@@ -3,9 +3,9 @@
 
 name: Deploy to Firebase Hosting on merge
 'on':
-  push:
+  push: - finished
     branches:
-      - main
+      - finished
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
