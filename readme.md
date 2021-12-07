@@ -11,7 +11,7 @@
 <h2>
   Sobre o projeto
 </h2>
-<p>O <strong>Letmeask</strong> é uma plataforma de perguntas e respostas divididas em salas, desenvolvido para sanar a dificuldade de quem faz aulas ao-vivo em responder perguntas feitas no chat da onde a aula está acontecendo. O público pode enviar perguntas para serem respondidas em tempo-real. Para acessar a plataforma é necessário ter uma conta no <a href="https://www.google.com/" target="_blank">Google</a> para fazer o login e assim poder enviar uma pergunta em uma sala existente ou criar sua própria sala, também é possível curtir perguntas de outros usuários. Na área do Admin, ele consegue marcar a pergunta como respondida, curti-lá, exclui-lá e encerrar a sala.</p>
+<p>O <strong>Letmeask</strong> é uma plataforma de perguntas divididas em salas, desenvolvido para sanar a dificuldade de quem faz aulas ao-vivo em responder perguntas feitas no chat da onde a aula está acontecendo. O público pode enviar perguntas para serem respondidas em tempo-real, o sistema também conta com login social usando o <a href="https://www.google.com/" target="_blank">Google</a> e assim poder enviar uma pergunta em uma sala existente ou criar sua própria sala, também é possível curtir perguntas de outros usuários. Na área do Admin, ele consegue marcar a pergunta como respondida, curti-lá, exclui-lá e encerrar a sala.</p>
 <br/>
 <hr />
 
